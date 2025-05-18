@@ -10,12 +10,12 @@
 </head>
 <body>
     <nav>
-        <ul>
+        
             <li class="brand">MUSIC-SKY</li>
-            <li>Home</li>
-            <li>About</li>
-
-        </ul>
+           
+            <a href="#">HOME</a>
+            <a href="./about.html" >ABOUT</a>
+        
     </nav>
     <div class="container">
         
@@ -85,9 +85,16 @@
             <i class="fa-solid fa-forward ic" id="next"></i>
         </div><br>
         <div class="songinfo">
-            <img src="./img2.jpg" width="42px" alt=""> <span class="mastersongname"></span>salam-e-ishq
+            <img src="./covers/img2.jpg" width="42px" alt="" id="currentcover"> <span class="mastersongname">salami-iseq meri jan</span>
+            
 
         </div>
+        <div class="volume-control">
+            <i class="fa-solid fa-volume-low"></i>
+            <input type="range" id="volumeSlider" min="0" max="100" value="50">
+            <i class="fa-solid fa-volume-high"></i>
+          </div>
+          
     </div>
     <script src="./script.js"></script>
     
