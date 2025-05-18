@@ -7,27 +7,38 @@ body{
     margin: 0;
     padding: 0;
 }
-nav{
-    font-family:'ubuntu',sans-serif ;
-}
-nav ul{
+nav {
+    background-color: #000; /* Black background */
     display: flex;
-    /* justify-content:space-evenly ; */
     align-items: center;
-    list-style-type:none;
-    height: 70px;
-    background-color: black;
-    color: rgb(255, 255, 255);
-}
-nav ul li{
-    padding: 0 12px;
-}
-.brand{
-    font-size: 25px;
-    font-weight: bold;
-    color: rgb(221, 152, 25);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+    padding: 12px 30px;
+    gap: 30px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  nav .brand {
+    color: #ff6600; /* Vibrant orange for logo */
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    cursor: default;
+  }
+  
+  nav a {
+    color: #fff; /* White links */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: #ff6600; /* Orange hover bg */
+    color: #000; /* Black text on hover */
+  }
+  
 .container{
     min-height: 75vh;
     background-color: black;
@@ -78,11 +89,20 @@ nav ul li{
     justify-content: space-between;
     align-items: center;
     border-radius: 30px;
+
+
+    padding: 0 10px;
+    flex-wrap: wrap;
 }
 .songitem img{
     width: 40px;
-    margin: 0 25px;
-    border-radius: 30px;
+    height: 40px;
+    object-fit: cover;
+    /* margin: 0 25px; */
+
+
+    margin-right: 10px;
+    border-radius: 50%;
 }
 .timestamp{
     margin: 0 30px;
@@ -106,3 +126,55 @@ nav ul li{
     opacity: 1;
     transition: opacity 1s ease-in;
 }
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .songitem {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 8px 12px;
+    }
+
+    .songname {
+        font-size: 14px;
+        flex: 1;
+    }
+
+    .timestamp {
+        font-size: 12px;
+    }
+
+    .songinfo {
+        font-size: 14px;
+        left: 5vw;
+    }
+
+    #myprogressbar {
+        width: 90vw;
+    }
+}
+.songinfo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 150px;
+    margin-left: 20px;
+  }
+  
+  #volumeSlider {
+    flex-grow: 1;
+    cursor: pointer;
+  }
+  
