@@ -1,4 +1,3 @@
-
 console.log("welcome to our web music app");
 
 // Initialize variables
@@ -60,7 +59,7 @@ const makeallplays=()=>{
 }
 Array.from(document.getElementsByClassName('songitemplay')).forEach((el) => {
     el.addEventListener('click', (e) => {
-        let clickedIndex = parseInt(e.target.id);
+        let clickedIndex = parseInt(e.target.id) - 1;
 
         if (clickedIndex === songindex) {
             if (audioelement.paused) {
@@ -80,38 +79,55 @@ Array.from(document.getElementsByClassName('songitemplay')).forEach((el) => {
             makeallplays();
             songindex = clickedIndex;
             audioelement.src = songs[songindex].filepath;
+            
             audioelement.currentTime = 0;
             audioelement.play();
             e.target.classList.remove('fa-play');
             e.target.classList.add('fa-pause');
             masterplay.classList.remove('fa-play');
             masterplay.classList.add('fa-pause');
+            document.querySelector('.mastersongname').innerText = songs[songindex].songname;
+            document.getElementById('currentcover').src = songs[songindex].coverpath;
         }
     });
 });
 document.getElementById('next').addEventListener('click',()=>{
-    if(songindex>=10){
+    if(songindex>=songs.length - 1){
         songindex=0;
     }
     else{
         songindex+=1;
     }
     audioelement.src = songs[songindex].filepath;
+    
     audioelement.currentTime = 0;
     audioelement.play();
     masterplay.classList.remove('fa-play');
     masterplay.classList.add('fa-pause');
+    document.querySelector('.mastersongname').innerText = songs[songindex].songname;
+    document.getElementById('currentcover').src = songs[songindex].coverpath;
 })
 document.getElementById('previous').addEventListener('click',()=>{
-    if(songindex<0){
-        songindex=0;
+    if(songindex<=0){
+        songindex=songs.length - 1;
     }
     else{
-        songindex=1;
+        songindex -=1;
     }
     audioelement.src = songs[songindex].filepath;
+    
     audioelement.currentTime = 0;
     audioelement.play();
     masterplay.classList.remove('fa-play');
     masterplay.classList.add('fa-pause');
+    document.querySelector('.mastersongname').innerText = songs[songindex].songname;
+    document.getElementById('currentcover').src = songs[songindex].coverpath;
 })
+const volumeSlider = document.getElementById('volumeSlider');
+
+// Set initial volume (between 0 and 1)
+audioelement.volume = volumeSlider.value / 100;
+
+volumeSlider.addEventListener('input', () => {
+    audioelement.volume = volumeSlider.value / 100;
+});
